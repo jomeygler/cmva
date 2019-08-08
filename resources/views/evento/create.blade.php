@@ -39,7 +39,17 @@
           <br>
           <input type="date" class="form-control" id="fec_fin"  name="fec_fin" placeholder="dime cuando termina" value="{{old('fec_fin')}}">
           <br>
-
+          <label for="nombre">tipo evento</label>
+          <br>
+          <div class="form-group">
+            <label for="">tipo</label>
+            <select class="form-control" name="tipoevento_id" id="tipoevento_id">
+                 @foreach($tipoevento as $tipoevento)
+   <option value="{{$tipoevento['id']}}">{{$tipoevento['nombre']}}</option>
+                 @endforeach
+            </select>
+              </div>
+          <br>
           <button class="btn btn-primary" type="submit" name="Guarda">Guarda</button>
 
           @csrf

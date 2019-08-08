@@ -5,10 +5,15 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\evento;
 use App\funcionario;
+use App\tipoevento;
 
-//use app\Http\Controllers\FuncionarioController;
+
 class EventoController extends Controller
 {
+  public function __construct()
+  {
+    $this->middleware('auth');
+  }
     /**
      * Display a listing of the resource.
      *
@@ -25,12 +30,18 @@ class EventoController extends Controller
 
      * @return \Illuminate\Http\Response
      */
-    public function create(funcionario $funcionario)
+    public function create(funcionario $funcionario, tipoevento $tipoevento)
     {
      $funcionario = funcionario::findorfail($funcionario->id);
-    return view('evento.create', [
-              'funcionario' => $funcionario
-         ]);
+     $tipoevento = tipoevento::all();
+
+
+//  return $tipoevento;
+    return view('evento.create',
+              ['funcionario' => $funcionario]
+              ,['tipoevento' => $tipoevento]
+              );
+
 
     }
 
@@ -40,13 +51,15 @@ class EventoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, funcionario $funcionario)
+    public function store(Request $request, funcionario $funcionario, tipoevento $tipoevento)
     {
       $evento = new evento();
        $evento->descrip_ev = $request->get('descrip_ev');
+      //  $evento->tipoevento_id = $tipoevento->id;
         $evento->fec_ini = $request->get('fec_ini');
       $evento->fec_fin = $request->get('fec_fin');
        $evento->funcionario_id = $funcionario->id;
+       $evento-> tipoevento_id = $request->get('tipoevento_id');
         $evento->save();
          return redirect('/funcionario/' . $funcionario->id);
         //

@@ -5,10 +5,17 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\evento;
 use App\tipoevento;
+use App\funcionario;
+use app\Http\Controllers\EventoController;
+
 class TipoeventoController extends Controller
 
 
 {
+  public function __construct()
+  {
+    $this->middleware('auth');
+  }
     /**
      * Display a listing of the resource.
      *

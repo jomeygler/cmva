@@ -20,4 +20,9 @@ Route::get('/funcionario/{funcionario}/eventos/create', 'EventoController@create
 Route::post('/funcionario/{funcionario}/eventos', 'EventoController@store');
 Route::resource('/departamento', 'DepartamentoController' );
 Route::resource('/tipoevento', 'TipoeventoController' );
+Route::resource('/evento', 'EventoController' );
 //
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');

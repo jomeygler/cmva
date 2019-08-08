@@ -9,6 +9,11 @@ use App\Http\Controllers\FuncionarioController;
 
 class DepartamentoController extends Controller
 {
+   public function __construct()
+   {
+     $this->middleware('auth');
+   }
+
     /**
      * Display a listing of the resource.
      *
@@ -89,6 +94,9 @@ class DepartamentoController extends Controller
      */
     public function destroy($id)
     {
+      $departamento = departamento::findorfail($id);
+      $departamento->delete ();
+      return redirect('/departamento');
         //
     }
 }

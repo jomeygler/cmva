@@ -46,6 +46,7 @@
 </div>
 <!-- cabecera fin -->
     <div class="container">
+@yield('content')
     <h1>APP</h1>
     <div class="flex-center position-ref full-height">
         @if (Route::has('login'))
