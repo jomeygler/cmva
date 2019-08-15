@@ -96,7 +96,9 @@ class DepartamentoController extends Controller
     {
       $departamento = departamento::findorfail($id);
       $departamento->delete ();
+        'departamento' => $departamento
       return redirect('/departamento');
+
         //
     }
 }
