@@ -94,9 +94,9 @@ class DepartamentoController extends Controller
      */
     public function destroy($id)
     {
-      $departamento = departamento::findorfail($id);
-      $departamento->delete ();
-        'departamento' => $departamento
+      $departamento = Departamento::findOrFail($id);
+      $departamento->delete();
+        //'departamento' -> $departamento;
       return redirect('/departamento');
 
         //
