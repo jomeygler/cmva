@@ -10,7 +10,7 @@
           <a class="btn btn-primary" href="/funcionario/{{$funcionario->id}}/">Regresa a funcionario</a>
            <br>
           <table class="table">
-          </table>
+
       </div>
   </div>
   <div class="row">
@@ -24,6 +24,7 @@
                     </ul>
                 </div>
             @endif
+            </table>
       <form class="form-horizontal" action="/funcionario/{{$funcionario->id}}/eventos" method="POST">
 
         <div class="form-group">

@@ -54,7 +54,11 @@ use App\Http\Controllers\DepartamentoController;
     // $departamentos = departamento::all();
 
     $DaliData = $request->validate([
-          'nombre' => 'required|min:4'
+          'nombre' => 'required|min:4',
+          'fecha' => 'required',
+          'rut' => 'required',
+          'departamento_id' => 'required'
+
        ]);
         $funcionario = new funcionario ();
        $funcionario-> nombre = $request->get('nombre');

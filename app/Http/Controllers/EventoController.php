@@ -51,8 +51,13 @@ class EventoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request, funcionario $funcionario, tipoevento $tipoevento)
+    public function store(funcionario $funcionario, tipoevento $tipoevento, Request $request)
     {
+      $DaliData = $request->validate([
+            'descrip_ev' => 'required|min:4',
+            'fec_ini' => 'required',
+            'fec_fin' => 'required',
+         ]);
       $evento = new evento();
        $evento->descrip_ev = $request->get('descrip_ev');
       //  $evento->tipoevento_id = $tipoevento->id;

@@ -47,7 +47,6 @@
            </div>
           <input type="checkbox" checked data-toggle="toggle" data-on="Hombre" data-off="Mujer">
           <br>
-
           <div class="form-group">
             <label for="">departamento</label>
             <select class="form-control" name="departamento_id" id="departamento_id">
@@ -55,11 +54,7 @@
    <option value="{{$departamento['id']}}">{{$departamento['nombre']}}</option>
                  @endforeach
             </select>
-
           </div>
-
-
-
 
           <br>
           <button class="btn btn-primary" type="submit" name="Guarda">Guarda</button>
